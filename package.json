@@ -1,0 +1,19 @@
+{
+  "name": "p5_servant_louis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass:./css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shigni/LouisServant_5_02022021.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shigni/LouisServant_5_02022021/issues"
+  },
+  "homepage": "https://github.com/Shigni/LouisServant_5_02022021/blob/master/README.md"
+}
