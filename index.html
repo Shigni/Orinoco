@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-    <link rel="stylesheet" type="text/css" href="./CSS/styles.css">
+    <link rel="stylesheet" type="text/css" href="./CSS/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,11 +15,25 @@
 </header>
 
 <body>
-    <div id="listing">
+
+<div id="cameras">
 
     </div>
-</body>
+    
+    <template id="cameras_template">
+        <div class="camera">
+            <h2 class="camera_name"></h2>
+            <p class="camera_lense"></p>
+            <img class="camera_image">
+            <p class="camera_id"></p>
+            <p class="camera_description"></p>
+            <p class="camera_price"></p>
+        </div>
+    </template>
 
-<script src="script.js"></script>
+<script src="js/class/camera.js"></script>
+<script src="js/listCameras.js"></script>
+
+</body>
 
 </html>
