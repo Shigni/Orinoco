@@ -3,33 +3,104 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="./CSS/style.css">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <title>Orinoco</title>
+    <title>Orinoco | Achat appareils photo vintage !</title>
 </head>
-
-<header>
-
-</header>
 
 <body>
 
-<div id="cameras">
+<!--  HEADER  -->
+<header>
+    <a href="index.html"><img class="logonav" src="images/logo.png" alt="Logo orinoco"/></a>
+    <ul class="navbar">
+        
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#popup">Contact</a></li>
+        <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+    </ul>
+
+</header>
+
+<!-- INFO -->
+<section class="info">
+    <h1>Bienvenue chez Orinoco !</h1>
+    <p>Trouvez un large choix d’appareils photo vintage en parfait état de fonctionnement !<br/>
+        Vous avez la possibilité de choisir différents objectifs selon les stocks.</p>
+</section>
+
+<!--  PRODUCTS  -->
+<section class="bg_products">
+    <div id="cameras">
+        <div class="recap">
+        </div>
 
     </div>
-    
+</section>
+
     <template id="cameras_template">
         <div class="camera">
-            <h2 class="camera_name"></h2>
-            <p class="camera_lense"></p>
-            <img class="camera_image">
-            <p class="camera_id"></p>
-            <p class="camera_description"></p>
+            <div class="card_1">
+                <img class="camera_image">
+            </div>
+            <div class="card_2">
+                <h2 class="camera_name"></h2>
+                <p class="camera_lense"></p>
+                <p class="camera_description"></p>
+                <p class="camera_id"></p>
+                <a href="#" class="more_info">
+                    Plus d'informations
+                </a>
+            </div>
             <p class="camera_price"></p>
         </div>
     </template>
+
+<!--  FOOTER  -->
+<footer>
+    <div class="about">
+        <p>À propos</p>
+        <ul>
+            <li><a href="#">Qui sommes-nous ?</a></li>
+            <li><a href="#">Conditions générales de vente</a></li>
+            <li><a href="#">Données et confidentialité</a></li>
+        </ul>
+    </div>
+    <div class="assistance">
+        <p>Assistance</p>
+        <ul>
+            <li><a href="#">Centre d'aide</a></li>
+            <li><a href="#popup">Nous contacter</a></li>
+        </ul>
+    </div>
+</footer>
+
+<div class="overlay" id="popup">
+    <div class="popupcontent">
+        <h2 class="title">Contact</h2>
+        <a class="close" href="#">&times;</a>
+        <div class="content">
+            <p>Vous avez des questions sur nos produits ? Ou sur la livraison ?
+                Alors envoyez nous un e-mail à l'adresse suivante: <span
+                    class="emailbold"><a href="mailto:">contact@orinoco.fr</a></span>.
+                <br />Ou utiliser simplement la messagerie intégrée !
+            </p>
+            <form>
+                <div class="type">
+                    <input type="email" id="email" name="email" placeholder="example@abc.fr">
+                </div>
+                <div class="type">
+                    <textarea id="myTextArea" rows="5" placeholder="Écrivez-nous !"></textarea>
+                </div>
+                <button class="submit"><i class="fas fa-paper-plane"></i></button>
+            </form>
+        </div>
+    </div>
+</div>
 
 <script src="js/class/camera.js"></script>
 <script src="js/listCameras.js"></script>
