@@ -1,0 +1,54 @@
+
+$light-grey: #f0f0f0;
+$dark-grey: #828282;
+
+.topnav {
+    background-color: $light-grey;
+    overflow: hidden;
+    a {
+        float: right;
+        display: block;
+        color: $dark-grey;
+        text-align: center;
+        padding: 25px 25px;
+        text-decoration: none;
+        font-size: 17px;
+        &:hover {
+            background-color: $dark-grey;
+            color: $light-grey;
+          }
+      }
+      .icon {
+        display: none;
+      }
+  }
+  
+@media screen and (max-width: 600px) {
+    .topnav a {
+        display: none;
+    }
+
+    .topnav a.icon {
+      float: right;
+      display: block;
+    }
+  }
+  
+  
+  @media screen and (max-width: 600px) {
+    .topnav.responsive {
+        padding-top: 70px;
+        transition: 500ms ease;
+    }
+
+    .topnav.responsive a.icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+  }
