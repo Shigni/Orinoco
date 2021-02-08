@@ -17,13 +17,14 @@
 <!--  HEADER  -->
 <header>
     <a href="index.html"><img class="logonav" src="images/logo.png" alt="Logo orinoco"/></a>
-    <ul class="navbar">
-        
+    <ul class="navbar" id="navbar">
         <li><a href="index.html">Home</a></li>
         <li><a href="#popup">Contact</a></li>
         <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
     </ul>
-
+    <!--<a href="javascript:void(0);" class="icon" onclick="myNavbar()">
+        <i class="fas fa-bars"></i>
+    </a>-->
 </header>
 
 <!-- INFO -->
@@ -52,11 +53,11 @@
                 <p class="camera_lense"></p>
                 <p class="camera_description"></p>
                 <p class="camera_id"></p>
+                <p class="camera_price"></p>
                 <a href="#" class="more_info">
                     Plus d'informations
                 </a>
-            </div>
-            <p class="camera_price"></p>
+            </div>   
         </div>
     </template>
 
@@ -104,6 +105,7 @@
 
 <script src="js/class/camera.js"></script>
 <script src="js/listCameras.js"></script>
+
 
 </body>
 
