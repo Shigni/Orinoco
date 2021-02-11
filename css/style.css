@@ -1,3 +1,6 @@
+/*#imgProduct {
+    display: none;
+}*/
 /*#### GENERAL ####*/
 .topnav {
   background-color: #f0f0f0;
@@ -50,7 +53,7 @@ body {
   top: 8px;
   margin-left: 10px; }
 
-/*#### PRODUCTS ####*/
+/*#### INFOS ####*/
 .info {
   text-align: center;
   line-height: 25px;
@@ -73,7 +76,6 @@ body {
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-evenly;
-  /*width: 70%;*/
   margin-top: 10px;
   margin: auto; }
 
@@ -184,7 +186,6 @@ body {
   box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.75);
   background: #e68500;
   background: linear-gradient(132deg, #e68500 0%, #8952fe 98%);
-  /*width: 160px;*/
   width: 102%;
   display: flex;
   justify-content: center;
@@ -418,7 +419,8 @@ textarea {
         display: inline;
         font-size: 20px;
         margin-top: 0;
-        margin-left: 0; }
+        margin-left: 0;
+        color: white; }
       .shopping_cart a p {
         display: none; }
 

@@ -6,7 +6,10 @@
     <link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script
+      src="https://use.fontawesome.com/releases/v5.15.2/js/all.js"
+      data-auto-a11y="true"
+    ></script>
     <script src="js/Navbar.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
@@ -15,71 +18,37 @@
 
 <body>
 
-<!--  HEADER  -->
+    <!--  HEADER  -->
 <header>
     <a href="index.html"><img class="logonav" src="images/logo.png" alt="Logo orinoco"/></a>
-
+    
     <div class="topnav" id="myTopnav">
         <a href="#about"><i class="fas fa-shopping-cart"></i></a>
-        <a href="#news">Home</a>
+        <a href="index.html">Home</a>
         <a href="#popup">Contact</a>
-        
+            
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>
         </a>
     </div>
-
+    
 </header>
 
-<!-- INFO -->
-<section class="info">
-    <h1>Bienvenue chez Orinoco !</h1>
-    <p>Trouvez un large choix d’appareils photo vintage en parfait état de fonctionnement !<br/>
-        Vous avez la possibilité de choisir différents objectifs selon les stocks.</p>
-</section>
+<!--  PRODUCT  -->
 
-<!--  PRODUCTS  -->
-<section class="bg_products">
-    <div id="cameras">
-        <div class="recap" id="recap">
-            <div class="shopping_cart">
-                <i class="fas fa-shopping-cart"></i>
-                <a href="#">
-                    <p>Finaliser votre commande</p>
-                    <i class="fas fa-shopping-cart"></i>
-                </a>
-            </div>
-            <div class="recap_cart">
-                <h2>Aperçu de votre commande:</h2>
-            </div>
-        </div>
-
-    </div>
-</section>
+<div id="cameras">
+    <img id="imgProduct">
+    <select id="optionSelect">
+        <option>Choisissez l'objectif</option>
+    </select>
+</div>
 
 <template id="cameras_template">
-    <div class="camera">
-        <div class="card_1">
-            <img class="camera_image">
-        </div>
-        <div class="card_2">
-            <h2 class="camera_name"></h2>
-            <p class="camera_lense"></p>
-            <p class="camera_description"></p>
-            <p class="camera_id"></p>
-            <p class="camera_price"></p>
-            <a href="" class="more_info">
-                Plus d'informations
-            </a>
-        </div>   
-    </div>
-</template>
-
-<template id="recap_template">
+    <h2 class="camera_name"></h2>
         
 </template>
 
-<!--  FOOTER  -->
+    <!--  FOOTER  -->
 <footer>
     <div class="about">
         <p>À propos</p>
@@ -97,6 +66,8 @@
         </ul>
     </div>
 </footer>
+
+<!--  POPUP  -->
 
 <div class="overlay" id="popup">
     <div class="popupcontent">
@@ -122,10 +93,8 @@
 </div>
 
 <script src="js/class/camera.js"></script>
-<script src="js/listCameras.js"></script>
+<script src="js/product.js"></script>
 
 
 
 </body>
-
-</html>

@@ -14,6 +14,7 @@ async function main() {
             $newTemplateCamera.querySelector('.camera_id').innerText = 'Ref: ' + camera.id
             $newTemplateCamera.querySelector('.camera_description').innerText = camera.description
             $newTemplateCamera.querySelector('.camera_price').innerText = camera.price / 100 + ',00 €'
+            $newTemplateCamera.querySelector('.more_info').href = 'product.html?id=' + camera.id;
             
 
             $cameras.append($newTemplateCamera);
