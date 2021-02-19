@@ -10,7 +10,11 @@ async function main() {
         console.log(camera);
 
 
-        document.getElementById("imgProduct").setAttribute("src", camera.imageUrl)
+        document.getElementById("camera_image").setAttribute("src", camera.imageUrl)
+        document.getElementById("camera_name").innerText = camera.name
+        document.getElementById("camera_description").innerHTML = '<span>Description du produit: </span><br />' + camera.description
+        document.getElementById("camera_price").innerHTML = '<span>Prix: </span>' + camera.price / 100 + '€'
+
         camera.lenses.forEach((product) => {
             let optionProduit = document.createElement("option");
             document.getElementById("optionSelect").appendChild(optionProduit).innerHTML = product;

@@ -2,14 +2,12 @@
 <html lang="fr">
 
 <head>
-    <link rel="stylesheet" type="text/css" href="./CSS/style.css">
-    <link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="./CSS/product.css">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
-    <script
-      src="https://use.fontawesome.com/releases/v5.15.2/js/all.js"
-      data-auto-a11y="true"
-    ></script>
+    <script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-a11y="true"
+        data-replacement-class="fas"></script>
     <script src="js/Navbar.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
@@ -19,82 +17,95 @@
 <body>
 
     <!--  HEADER  -->
-<header>
-    <a href="index.html"><img class="logonav" src="images/logo.png" alt="Logo orinoco"/></a>
-    
-    <div class="topnav" id="myTopnav">
-        <a href="#about"><i class="fas fa-shopping-cart"></i></a>
-        <a href="index.html">Home</a>
-        <a href="#popup">Contact</a>
-            
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
-    </div>
-    
-</header>
 
-<!--  PRODUCT  -->
+    <header>
+        <a href="index.html"><img class="logonav" src="images/logo.png" alt="Logo orinoco" /></a>
 
-<div id="cameras">
-    <img id="imgProduct">
-    <select id="optionSelect">
-        <option>Choisissez l'objectif</option>
-    </select>
-</div>
+        <div class="topnav" id="myTopnav">
+            <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+            <a href="index.html">Home</a>
+            <a href="#popup">Contact</a>
 
-<template id="cameras_template">
-    <h2 class="camera_name"></h2>
-        
-</template>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+
+    </header>
+
+    <!--  PRODUCT  -->
+
+    <section class="bg_product">
+        <div class="product">
+            <img id="camera_image">
+            <div class="card_1">
+                <h2 id="camera_name"></h2>
+                <p id="camera_description"></p>
+
+                <form id="form">
+                <select name="type" id="optionSelect">
+                    <option selected disabled>Choisissez un objectif</option>
+                </select>
+                <div class="error" id="errors_type"></div>
+                <p id="camera_price"></p>
+                <!--<a href="#" class="add_cart" id="ajouterProduitPanier">Ajouter au panier</a>-->
+                <button type="submit" class="add_cart" id="ajouterProduitPanier">Ajouter au panier</button>
+                <div class="success" id="success_type"></div>
+            </form>
+
+            </div>
+        </div>
+    </section>
 
     <!--  FOOTER  -->
-<footer>
-    <div class="about">
-        <p>À propos</p>
-        <ul>
-            <li><a href="#">Qui sommes-nous ?</a></li>
-            <li><a href="#">Conditions générales de vente</a></li>
-            <li><a href="#">Données et confidentialité</a></li>
-        </ul>
-    </div>
-    <div class="assistance">
-        <p>Assistance</p>
-        <ul>
-            <li><a href="#">Centre d'aide</a></li>
-            <li><a href="#popup">Nous contacter</a></li>
-        </ul>
-    </div>
-</footer>
 
-<!--  POPUP  -->
+    <footer>
+        <div class="about">
+            <p>À propos</p>
+            <ul>
+                <li><a href="#">Qui sommes-nous ?</a></li>
+                <li><a href="#">Conditions générales de vente</a></li>
+                <li><a href="#">Données et confidentialité</a></li>
+            </ul>
+        </div>
+        <div class="assistance">
+            <p>Assistance</p>
+            <ul>
+                <li><a href="#">Centre d'aide</a></li>
+                <li><a href="#popup">Nous contacter</a></li>
+            </ul>
+        </div>
+    </footer>
 
-<div class="overlay" id="popup">
-    <div class="popupcontent">
-        <h2 class="title">Contact</h2>
-        <a class="close" href="#">&times;</a>
-        <div class="content">
-            <p>Vous avez des questions sur nos produits ? Ou sur la livraison ?
-                Alors envoyez nous un e-mail à l'adresse suivante: <span
-                    class="emailbold"><a href="mailto:">contact@orinoco.fr</a></span>.
-                <br />Ou utiliser simplement la messagerie intégrée !
-            </p>
-            <form>
-                <div class="type">
-                    <input type="email" id="email" name="email" placeholder="example@abc.fr">
-                </div>
-                <div class="type">
-                    <textarea id="myTextArea" rows="5" placeholder="Écrivez-nous !"></textarea>
-                </div>
-                <button class="submit"><i class="fas fa-paper-plane"></i></button>
-            </form>
+    <!--  POPUP  -->
+
+    <div class="overlay" id="popup">
+        <div class="popupcontent">
+            <h2 class="title">Contact</h2>
+            <a class="close" href="#">&times;</a>
+            <div class="content">
+                <p>Vous avez des questions sur nos produits ? Ou sur la livraison ?
+                    Alors envoyez nous un e-mail à l'adresse suivante: <span class="emailbold"><a
+                            href="mailto:">contact@orinoco.fr</a></span>.
+                    <br />Ou utiliser simplement la messagerie intégrée !
+                </p>
+                <form>
+                    <div class="type">
+                        <input type="email" id="email" name="email" placeholder="example@abc.fr">
+                    </div>
+                    <div class="type">
+                        <textarea id="myTextArea" rows="5" placeholder="Écrivez-nous !"></textarea>
+                    </div>
+                    <button class="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
-<script src="js/class/camera.js"></script>
-<script src="js/product.js"></script>
-
-
-
+    <script src="js/class/camera.js"></script>
+    <script src="js/product.js"></script>
+    <script src="js/carttest.js"></script>
+    <script>
+        addPanier();
+    </script>
 </body>

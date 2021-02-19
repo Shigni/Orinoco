@@ -1,7 +1,3 @@
-/*#imgProduct {
-    display: none;
-}*/
-
 /*#### GENERAL ####*/
 
 $light-grey: #f0f0f0;
@@ -25,137 +21,53 @@ body {
     margin-left: 10px;
 }
 
-/*#### INFOS ####*/
+/*#### PRODUCT ####*/
 
-.info {
-    text-align: center;
-    line-height: 25px;
-    padding: 30px;
-
-    h1 {
-        font-size: 30px;
-    }
-}
-
-/*#### PRODUCTS ####*/
-
-.bg_products {
+.bg_product {
     background-color: $light-grey;
-    width: 100%;
+    padding: 20px;
+    margin-top: 64px;
+    margin-bottom: 63px;
+}
+
+.product {
+    width: 60%;
     margin: auto;
     display: flex;
-    flex-wrap: wrap;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    justify-content: space-between;
 }
 
-#cameras {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-evenly;  
-    margin-top: 10px;
-    margin: auto;
-    
-}
-
-.recap {
-    display: flex;
-    width: 30%;
-    height: 180px;
-    border: 5px solid white;
-    border-radius: 15px;
-    margin-bottom: 20px;
-    background-color: white;
-    box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.75);
-    transition: 250ms ease;
-    &:hover {
-        box-shadow: 0px 0px 15px -1px rgba(0,0,0,0.75);
-    }
-}
-
-.camera {
-    display: flex;
-    width: 30%;
-    height: 180px;
-    border: 5px solid white;
-    background-color: white;
-    border-radius: 15px;
-    overflow: hidden;
-    margin-bottom: 20px;
-    box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.75);
-    transition: 250ms ease;
-    &:hover {
-        box-shadow: 0px 0px 15px -1px rgba(0,0,0,0.75);
-        .more_info {
-            margin: 0px;
-        }
-    }
-    &_image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-    &_lense {
-        height: 20%;
-    }
-    &_description {
-        height: 50%;
-    }
-    &_id {
-        height: 10%;
-    }
-    &_name {
-        height: 20%;
-    }
-    &_price {
-        position: absolute;
-        top: 0px;
-        right: 30px;
-        display: flex;
-        font-weight: bold;
-        height: 35%;
-        align-items: center;
-        justify-content: center;
-    }
+#camera_image {
+    width: 68%;
+    margin-right: 20px;
+    object-fit: cover;
+    border-radius: 15px 0 0 15px;
 }
 
 .card_1 {
-    width: 40%;
-}
-
-.card_2 {
-    width: 60%;
-    margin-left: 2%; 
-    position: relative;
-    p {
-        margin: 0; 
-    }
-    h2 {
-        margin: 0;
-    }
-}
-
-.shopping_cart {
     display: flex;
-    width: 40%;
+    align-items: center;
+    justify-content: space-around;
     flex-direction: column;
-    text-align: center;
-    .fas {
-        font-size: 90px;
-        text-align: center;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin-top: 10px;
-        margin-left: -10px;
-        color: $dark-grey;
+    width: 30%;
+    background-color: white;
+    border: 5px solid white;
+    box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.75);
+    border-radius: 0 15px 15px 0;
+    h2 {
+        margin-bottom: 0;
     }
-    a {
-        margin-top: 10px;
-        text-decoration: none;
+    form {
         width: 100%;
-        height: 38%;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.add_cart {
+        text-decoration: none;
+        width: 50%;
+        height: 50px;
         display: flex;
         text-align: center;
         justify-content: center;
@@ -165,40 +77,35 @@ body {
         background: rgb(230, 133, 0);
         background: linear-gradient(132deg, rgb(230, 133, 0) 0%, rgb(137, 82, 254) 98%);
         box-shadow: 0px 0px 15px -5px rgb(0, 0, 0);
-        .fas {
-            display: none;
-        }
-    }
+        border: none;
+        outline: none;
+        font-size: 16px;
+        font-weight: bold;
 }
 
-.recap_cart {
-    display: flex;
-    width: 60%;
-    margin-left: 2%; 
-    h2 {
-        margin: 0;
-        margin-top: 10px;
-    }
+#success_type {
+    margin-top: 10px;
+   // margin-bottom: 20px;
+    color: green;
 }
 
-.more_info {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.75);
-    background: rgb(230,133,0);
-    background: linear-gradient(132deg, rgb(230,133,0) 0%, rgba(137,82,254,1) 98%);
-    width: 102%;
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    text-align: center;
-    margin-bottom: -80px;
-    height: 38%;
-    color: white;
-    transition: 250ms;
-    border-radius: 15px;
-    text-decoration: none;
+.error {
+    color: red;
+    margin-top: 5px;
+}
+
+#camera_description {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+span {
+    font-weight: bold;
+}
+#optionSelect {
+    width: 90%;
+    height: 30px;
+    
 }
 
 /*#### FOOTER ####*/
@@ -376,83 +283,64 @@ textarea {
 
 /*#### MEDIA ####*/
 
-@media (max-width: 1620px) {
-    .camera_price {
-        right: 15px;
-    }
-}
-
 @media (max-width: 1440px) {
-    .camera {
-        width: 45%;
-    }
-
-    .recap {
-        width: 45%;
+    .product {
+        width: 70%;
     }
 }
 
 @media (max-width: 1024px) {
-    .camera {
+    .product {
         width: 80%;
     }
 
-    .recap {
-        width: 80%;
-    }
     .popupcontent {
         width: 60%;
     }
 }
 
-@media (max-width: 550px) {
-    .camera {
-        width: 95%;
+@media (max-width: 900px) {
+    .product {
+        flex-direction: column;
     }
 
-    .recap {
-        width: 95%;
+    #camera_image {
+        width: 80%;
+        margin: auto;
+        border-radius: 15px 15px 0 0;
     }
+
+    .card_1 {
+        width: 80%;
+        margin: auto;
+        border-radius: 0 0 15px 15px;
+        border: none;
+    }
+}
+
+@media (max-width: 550px) {
     .popupcontent {
         width: 85%;
     }
 }
 
 @media (max-width: 450px) {
+
+    #camera_image {
+        width: 95%;     
+    }
+
     .card_1 {
-        width: 50%;
+        width: 95%;
     }
 
-    .card_2 {
-        width: 50%;
-    }
-
-    .camera {
-        &_description {
-            display: none;
-        }
-        &_id {
-            display: none;
-        }
-        &_price {
-            position: inherit;
-            align-items: inherit;
-            justify-content: inherit;
-            right: 0;
-            height: 10%;
-        }
-        &_name {
-            height: 30%;
-        }
-        &_lense {
-            height: 30%;
-            
-        }
-    }
-    .more_info {
+    .bg_product {
+        padding: 0;
+        padding-top: 20px;
+        padding-bottom: 20px;
         margin-bottom: 0;
-        height: 25%;
     }
+
     footer {
 
         .about {
@@ -462,46 +350,10 @@ textarea {
             width: 80%;
         }
     }
-
-    .shopping_cart {
-        width: 50px;
-        position: relative;
-        .fas {
-            display: none;
-        }
-        a {
-            width: 45px;
-            height: 45px;
-            position: absolute;
-            top: 0;
-            right: 0;
-            margin: 0;
-            
-            .fas {
-                display: inline;
-                font-size: 20px;
-                margin-top: 0;
-                margin-left: 0;
-                color: white;
-            }
-            p {
-                display: none;
-            }
-        }
-    }
-    
-    .recap_cart {
-        width: 100%;
-        margin: 0;
-        h2 {
-            margin: 0;
-            margin-top: 10px;
-            margin-left: 2%;
-        }
-    }
-      .recap {
-          flex-direction: row-reverse;
-      }
 }
 
-
+@media (max-width: 375px) {
+    .product{
+        width: 100%;
+    }
+}
