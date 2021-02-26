@@ -1,113 +1,193 @@
-if(localStorage.getItem("userPanier")){
-	console.log("Administration : le panier de l'utilisateur existe dans le localStorage");
-}else{
-	console.log("Administration : Le panier n'existe pas, il va être créer et l'envoyer dans le localStorage");
-  	//Le panier est un tableau de produits
-  	let panierInit = [];
-  	localStorage.setItem("userPanier", JSON.stringify(panierInit));
-  };
+let userPanier = JSON.parse(localStorage.getItem("userPanier"));
 
-  	//Tableau et objet demandé par l'API pour la commande
-  	let contact;
-  	let products = [];
+// Ajout au panier
+addPanier = () => {
+    const $form = document.getElementById('form');
 
-	//L'user a maintenant un panier
-	let userPanier = JSON.parse(localStorage.getItem("userPanier"));
+    // Obligation de remplir le champs pour ajouter au panier
+    $form.addEventListener('submit', (e) => {
+        e.preventDefault();
 
+        const datas = formToJson($form);
+        let hasError = false;
 
-addPanier = () =>{
+        document.getElementById('errors_type').innerText = '';
+        document.getElementById('success_type').innerText = '';
+        if (!datas.type) {
+            document.getElementById('errors_type').innerText = "Sélectionnez un objectif";
+            hasError = true;
+        }
 
-    const urlParams = new URLSearchParams(window.location.search)
-    const myParam = urlParams.get('id')
+        if (hasError) {
+            return;
+        }
 
-    let inputBuy = document.getElementById("ajouterProduitPanier");
-    inputBuy.addEventListener("click", async function() {
-        const cameraRaw = await fetch(`http://localhost:3000/api/cameras/${myParam}`).then(r => r.json());
-        const produits = new Camera(cameraRaw)
+        //Création de l'objet dans le localStorage
+        const urlParams = new URLSearchParams(window.location.search)
+        const productId = urlParams.get('id')
+        let selectQuantity = document.getElementById("productQuantity");
+        let selectedQuantity = selectQuantity.options[selectQuantity.selectedIndex].value;
+        const item = {
+            "id": productId,
+            "quantity": selectedQuantity,
+        };
 
-    userPanier.push(produits);
-    localStorage.setItem("userPanier", JSON.stringify(userPanier));
-    console.log("le produit a été ajouté au panier");
-    console.log(localStorage)
-  
-});
-};
+        if (!localStorage.getItem("userPanier")) {
+            let cartInit = [];
+            localStorage.setItem("userPanier", JSON.stringify(cartInit));
+        }
 
-addition = () =>{
-  
-  if(JSON.parse(localStorage.getItem("userPanier")).length > 0){
-    document.getElementById("panierVide").remove();
-  
-    let facture = document.createElement("table");
-    let ligneTableau = document.createElement("tr");
-    let colonneNom = document.createElement("th");
-    let colonnePrixUnitaire = document.createElement("th");
+        let userPanier = JSON.parse(localStorage.getItem("userPanier"));
 
-    let ligneTotal = document.createElement("tr");
-    let colonneRefTotal = document.createElement("th");
-    let colonnePrixPaye = document.createElement("td");
+        var isInUserCart = false;
 
-    let factureSection = document.getElementById("basket-resume");
-    factureSection.appendChild(facture);
-    facture.appendChild(ligneTableau);
-    ligneTableau.appendChild(colonneNom);
-    colonneNom.textContent = "Nom du produit";
-    ligneTableau.appendChild(colonnePrixUnitaire);
-    colonnePrixUnitaire.textContent = "Prix du produit";
+        // Vérifie si l'objet est déjà dans le panier et bloque l'ajout d'un second        
+        userPanier.forEach(element => {
+            if (productId == element.id) {
+                isInUserCart = true;
+            }
+        });
 
-    let i = 0;
-    
-    JSON.parse(localStorage.getItem("userPanier")).forEach((produit)=>{
-  
-      let ligneProduit = document.createElement("tr");
-      let nomProduit = document.createElement("td");
-      let prixUnitProduit = document.createElement("td");
-      let removeProduit = document.createElement("button");
-
-      ligneProduit.setAttribute("id", "produit"+i);
-      removeProduit.setAttribute("id", "remove"+i);
-      removeProduit.setAttribute('class', "annulerProduit");
-      removeProduit.innerText = ("delete")
-      
-      removeProduit.addEventListener('click', annulerProduit.bind(i));
-      i++;
-
-      facture.appendChild(ligneProduit);
-      ligneProduit.appendChild(nomProduit);
-      ligneProduit.appendChild(prixUnitProduit);
-      ligneProduit.appendChild(removeProduit);
-
-      nomProduit.innerHTML = produit.name;
-      prixUnitProduit.textContent = produit.price / 100 + " €";
-  });
-
-    facture.appendChild(ligneTotal);
-    ligneTotal.appendChild(colonneRefTotal);
-    colonneRefTotal.textContent = "Total à payer"
-    ligneTotal.appendChild(colonnePrixPaye);
-    colonnePrixPaye.setAttribute("id", "sommeTotal")
-
-    let totalPaye = 0;
-    JSON.parse(localStorage.getItem("userPanier")).forEach((produit)=>{
-      totalPaye += produit.price / 100;
+        if (!isInUserCart) {
+            userPanier.push(item);
+            localStorage.setItem("userPanier", JSON.stringify(userPanier));
+            document.getElementById('success_type').innerText = 'Ajouté au panier';
+            window.location.reload();
+        }
     });
 
-    console.log(totalPaye);
-    document.getElementById("sommeTotal").textContent = totalPaye + " €";
+    function formToJson($form) {
+        const result = {};
+        const formData = new FormData($form);
+
+        Array.from(formData.keys()).forEach((key) => {
+            result[key] = formData.get(key);
+        })
+
+        return result;
+    }
 };
+
+// Création de la pastille indiquant le nombres de produits dans le panier
+cartInfo = () => {
+
+    if (JSON.parse(localStorage.getItem("userPanier")).length > 0) {
+
+        let infoCart = document.createElement("div")
+        infoCart.setAttribute("id", "pastille")
+        document.getElementById("info-cart").appendChild(infoCart)
+    };
+
+    for (i = 0; i < userPanier.length; i++) {
+        x = userPanier.length;
+        document.getElementById("pastille").innerHTML = x;
+    };
 }
 
-annulerProduit = (i) =>{
-  console.log("Enlever le produit à l'index " + i);
+// Récupération du localStorage, ajout des informations de panier
+addition = () => {
+    // Ne pas afficher le panier si il est vide
+    if (JSON.parse(localStorage.getItem("userPanier")).length <= 0) {
+        document.getElementById("totalPrice").remove()
+    };
 
-    userPanier.splice(i, 1); 
-    console.log(userPanier);
+    if (JSON.parse(localStorage.getItem("userPanier")).length > 0) {
+        document.getElementById("basket-resume").remove();
 
-    localStorage.clear();
-    console.log("localStorage vidé");
+        // Création de l'afficheur du prix total
+        let createTotal = document.createElement("div");
+        createTotal.setAttribute("id", "totalCart");
+        document.getElementById("totalPrice").appendChild(createTotal);
 
+        var products = localStorage.key("userPanier");
+        var listOfProducts = JSON.parse(localStorage.getItem(products));
+
+        // Récupération des données de l'api
+        const promises = listOfProducts.map(item => {
+            return fetch(`http://localhost:3000/api/cameras/` + item.id).then(response => {
+                return response.json()
+            });
+        });
+
+        // Affichage des différents objets du localStorage
+        Promise.all(promises).then(data => {
+
+            const $cameras = document.getElementById('camerasCart')
+            const $templateCamera = document.getElementById('cameras_template').content;
+
+            let i = 0;
+
+            for (element in data) {
+                const $newTemplateCamera = $templateCamera.cloneNode(true);
+
+                $newTemplateCamera.querySelector('.camera_image').src = data[element].imageUrl
+                $newTemplateCamera.querySelector('.camera_name').innerHTML = data[element].name
+                $newTemplateCamera.querySelector('.camera_lense').innerHTML = '<span>Objectif: </span>' + data[element].lenses[0]
+                $newTemplateCamera.querySelector('.camera_price').innerHTML = '<span>Prix: </span>' + data[element].price / 100 + '€'
+                $newTemplateCamera.getElementById('remove_product').innerHTML = '<button class="annulerProduit"><i class="fas fa-trash-alt"></i> <span class="delete-btn"> Supprimer </span></button>'
+                $newTemplateCamera.querySelector('.quantityCheck').innerHTML = '<div data-id="' + data[element]._id + '" class="more">+</div><span>Quantité: </span>' + listOfProducts[element].quantity + '<div data-id="' + data[element]._id + '" class="less">-</div>';
+
+                $cameras.append($newTemplateCamera);
+
+                // Création de bouton de retrait du panier
+                let removeProduit = document.getElementById('remove_product');
+                removeProduit.setAttribute("id", "remove" + i);
+
+                const index = i
+                removeProduit.addEventListener('click', () => {
+                    annulerProduit(index)
+                });
+
+                i++;
+
+                // Calcul du prix total en fonction du nombre d'objet dans le panier et de leur quantité
+                let totalPrice = 0
+                for (element in data) {
+                    totalPrice += data[element].price * listOfProducts[element].quantity / 100;
+                };
+                document.getElementById("totalCart").innerHTML = '<span>Total du panier: </span>' + totalPrice + '€';
+            };
+
+            // Comparaison des id produits et bouton et modification de la quantité dans le panier
+            // Diminue la quantité
+            document.addEventListener('click', e => {
+                if (!e.target.classList.contains("less")) {
+                    return;
+                }
+                for (element in listOfProducts) {
+                    if (listOfProducts[element].id == e.target.dataset.id & listOfProducts[element].quantity > 1) {
+                        listOfProducts[element].quantity--;
+                        window.location.reload();
+                    }
+                }
+                localStorage.setItem("userPanier", JSON.stringify(listOfProducts));
+            });
+
+            // Augmente la quantité
+            document.addEventListener("click", e => {
+                if (!e.target.classList.contains("more")) {
+                    return;
+                }
+
+                for (element in listOfProducts) {
+                    if (listOfProducts[element].id == e.target.dataset.id) {
+                        listOfProducts[element].quantity++;
+                        window.location.reload();
+                    }
+                }
+                localStorage.setItem("userPanier", JSON.stringify(listOfProducts));
+            });
+
+        });
+
+    };
+};
+
+// Fonction pou le retrait d'un produit du panier
+annulerProduit = (i) => {
+    userPanier.splice(i, 1);
     localStorage.setItem('userPanier', JSON.stringify(userPanier));
-    console.log("localStorage mis à jour");
-
     window.location.reload();
 };
+
+

@@ -2,127 +2,126 @@
 <html lang="fr">
 
 <head>
-    <link rel="stylesheet" type="text/css" href="./CSS/style.css">
-    <link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="./CSS/index.css">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
-    <script
-      src="https://use.fontawesome.com/releases/v5.15.2/js/all.js"
-      data-auto-a11y="true" data-replacement-class="fas"
-    ></script>
+    <script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-a11y="true"
+        data-replacement-class="fas"></script>
     <script src="js/Navbar.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <title>Orinoco | Achat appareils photo vintage !</title>
+    <meta name="description"
+        content="Orinoco est une boutique en ligne spécialisée dans la vente d'appareils photo vintage !">
 </head>
 
 <body>
 
-<!--  HEADER  -->
-<header>
-    <a href="index.html"><img class="logonav" src="images/logo.png" alt="Logo orinoco"/></a>
+    <!--  HEADER  -->
+    <header>
+        <a href="index.html"><img class="logonav" src="images/logo.png" alt="Logo orinoco" /></a>
 
-    <div class="topnav" id="myTopnav">
-        <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
-        <a href="index.html">Home</a>
-        <a href="#popup">Contact</a>
-        
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
-    </div>
+        <div class="topnav" id="myTopnav">
+            <a id="info-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+            <a href="index.html">Home</a>
+            <a href="#popup">Contact</a>
 
-</header>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
 
-<!-- INFO -->
-<section class="info">
-    <h1>Bienvenue chez Orinoco !</h1>
-    <p>Trouvez un large choix d’appareils photo vintage en parfait état de fonctionnement !<br/>
-        Vous avez la possibilité de choisir différents objectifs selon les stocks.</p>
-</section>
+    </header>
 
-<!--  PRODUCTS  -->
-<section class="bg_products">
-    <div id="cameras">
-        <div class="recap" id="recap">
-            <div class="shopping_cart">
-                <i class="fas fa-shopping-cart"></i>
-                <a href="#">
-                    <p>Finaliser votre commande</p>
-                    <i class="fas fa-shopping-cart"></i>
+    <!-- INFO -->
+    <section class="productList">
+        <h1 class="info">Bienvenue chez Orinoco !</h1>
+
+        <!--  PRODUCTS  -->
+        <div class="bg_products">
+            <div id="cameras">
+                <div class="recap" id="recap">
+                    <div class="shopping_cart">
+                        <p>Trouvez un large choix d’appareils photo vintage en parfait état de fonctionnement !
+                            Vous avez la possibilité de choisir différents objectifs selon les stocks.</p>
+                        <a href="cart.html">
+                            <p>Finaliser votre commande</p>
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <template id="cameras_template">
+        <div class="camera">
+            <div class="card_1">
+                <img class="camera_image">
+            </div>
+            <div class="card_2">
+                <h2 class="camera_name"></h2>
+                <p class="camera_lense"></p>
+                <p class="camera_description"></p>
+                <p class="camera_id"></p>
+                <p class="camera_price"></p>
+                <a href="" class="more_info">
+                    Plus d'informations
                 </a>
             </div>
-            <div class="recap_cart">
-                <h2>Aperçu de votre commande:</h2>
+        </div>
+    </template>
+
+    <!--  FOOTER  -->
+    <footer>
+        <div class="about">
+            <p>À propos</p>
+            <ul>
+                <li><a href="#">Qui sommes-nous ?</a></li>
+                <li><a href="#">Conditions générales de vente</a></li>
+                <li><a href="#">Données et confidentialité</a></li>
+            </ul>
+        </div>
+        <div class="assistance">
+            <p>Assistance</p>
+            <ul>
+                <li><a href="#">Centre d'aide</a></li>
+                <li><a href="#popup">Nous contacter</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!--  POPUP  -->
+    <div class="overlay" id="popup">
+        <div class="popupcontent">
+            <h2 class="title">Contact</h2>
+            <a class="close" href="#">&times;</a>
+            <div class="content">
+                <p>Vous avez des questions sur nos produits ? Ou sur la livraison ?
+                    Alors envoyez nous un e-mail à l'adresse suivante: <span class="emailbold"><a
+                            href="mailto:">contact@orinoco.fr</a></span>.
+                    <br />Ou utiliser simplement la messagerie intégrée !
+                </p>
+                <form>
+                    <div class="type">
+                        <input type="email" id="email" name="emailPopup" placeholder="example@abc.fr">
+                    </div>
+                    <div class="type">
+                        <textarea id="myTextArea" rows="5" placeholder="Écrivez-nous !"></textarea>
+                    </div>
+                    <button class="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
             </div>
         </div>
-
     </div>
-</section>
 
-<template id="cameras_template">
-    <div class="camera">
-        <div class="card_1">
-            <img class="camera_image">
-        </div>
-        <div class="card_2">
-            <h2 class="camera_name"></h2>
-            <p class="camera_lense"></p>
-            <p class="camera_description"></p>
-            <p class="camera_id"></p>
-            <p class="camera_price"></p>
-            <a href="" class="more_info">
-                Plus d'informations
-            </a>
-        </div>   
-    </div>
-</template>
-
-<!--  FOOTER  -->
-<footer>
-    <div class="about">
-        <p>À propos</p>
-        <ul>
-            <li><a href="#">Qui sommes-nous ?</a></li>
-            <li><a href="#">Conditions générales de vente</a></li>
-            <li><a href="#">Données et confidentialité</a></li>
-        </ul>
-    </div>
-    <div class="assistance">
-        <p>Assistance</p>
-        <ul>
-            <li><a href="#">Centre d'aide</a></li>
-            <li><a href="#popup">Nous contacter</a></li>
-        </ul>
-    </div>
-</footer>
-
-<div class="overlay" id="popup">
-    <div class="popupcontent">
-        <h2 class="title">Contact</h2>
-        <a class="close" href="#">&times;</a>
-        <div class="content">
-            <p>Vous avez des questions sur nos produits ? Ou sur la livraison ?
-                Alors envoyez nous un e-mail à l'adresse suivante: <span
-                    class="emailbold"><a href="mailto:">contact@orinoco.fr</a></span>.
-                <br />Ou utiliser simplement la messagerie intégrée !
-            </p>
-            <form>
-                <div class="type">
-                    <input type="email" id="email" name="email" placeholder="example@abc.fr">
-                </div>
-                <div class="type">
-                    <textarea id="myTextArea" rows="5" placeholder="Écrivez-nous !"></textarea>
-                </div>
-                <button class="submit"><i class="fas fa-paper-plane"></i></button>
-            </form>
-        </div>
-    </div>
-</div>
-
-<script src="js/class/camera.js"></script>
-<script src="js/listCameras.js"></script>
-
+    <script src="js/class/camera.js"></script>
+    <script src="js/listCameras.js"></script>
+    <script src="js/cart.js"></script>
+    <script>
+        cartInfo();
+    </script>
 </body>
 
 </html>

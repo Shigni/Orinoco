@@ -12,17 +12,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <title>Orinoco | Achat appareils photo vintage !</title>
+    <meta name="description" content="Orinoco est une boutique en ligne spécialisée dans la vente d'appareils photo vintage !">
 </head>
 
 <body>
 
     <!--  HEADER  -->
-
     <header>
         <a href="index.html"><img class="logonav" src="images/logo.png" alt="Logo orinoco" /></a>
 
         <div class="topnav" id="myTopnav">
-            <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+            <a id="info-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
             <a href="index.html">Home</a>
             <a href="#popup">Contact</a>
 
@@ -34,31 +34,37 @@
     </header>
 
     <!--  PRODUCT  -->
-
     <section class="bg_product">
         <div class="product">
-            <img id="camera_image">
+            <img id="camera_image" src="#" alt="Appareil photo vintage">
             <div class="card_1">
-                <h2 id="camera_name"></h2>
+                <h2 id="camera_name">Camera name</h2>
                 <p id="camera_description"></p>
 
                 <form id="form">
-                <select name="type" id="optionSelect">
-                    <option selected disabled>Choisissez un objectif</option>
-                </select>
-                <div class="error" id="errors_type"></div>
-                <p id="camera_price"></p>
-                <!--<a href="#" class="add_cart" id="ajouterProduitPanier">Ajouter au panier</a>-->
-                <button type="submit" class="add_cart" id="ajouterProduitPanier">Ajouter au panier</button>
-                <div class="success" id="success_type"></div>
-            </form>
+                    <select name="type" id="optionSelect">
+                        <option selected disabled>Choisissez un objectif</option>
+                    </select>
+                    <div class="error" id="errors_type"></div>
+                    <p id="camera_price"></p>
+                    <span>Quantité:
+                        <select id="productQuantity">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </span>
+                    <button type="submit" class="add_cart" id="ajouterProduitPanier">Ajouter au panier</button>
+                    <div class="success" id="success_type"></div>
+                </form>
 
             </div>
         </div>
     </section>
 
     <!--  FOOTER  -->
-
     <footer>
         <div class="about">
             <p>À propos</p>
@@ -78,7 +84,6 @@
     </footer>
 
     <!--  POPUP  -->
-
     <div class="overlay" id="popup">
         <div class="popupcontent">
             <h2 class="title">Contact</h2>
@@ -91,7 +96,7 @@
                 </p>
                 <form>
                     <div class="type">
-                        <input type="email" id="email" name="email" placeholder="example@abc.fr">
+                        <input type="email" id="emailPopup" name="email" placeholder="example@abc.fr">
                     </div>
                     <div class="type">
                         <textarea id="myTextArea" rows="5" placeholder="Écrivez-nous !"></textarea>
@@ -104,8 +109,9 @@
 
     <script src="js/class/camera.js"></script>
     <script src="js/product.js"></script>
-    <script src="js/carttest.js"></script>
+    <script src="js/cart.js"></script>
     <script>
         addPanier();
+        cartInfo();
     </script>
 </body>

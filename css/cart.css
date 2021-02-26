@@ -9,12 +9,30 @@
     text-align: center;
     padding: 25px 25px;
     text-decoration: none;
-    font-size: 17px; }
+    font-size: 18px; }
     .topnav a:hover {
       background-color: #828282;
       color: #f0f0f0; }
   .topnav .icon {
     display: none; }
+
+#info-cart {
+  position: relative; }
+
+#pastille {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  font-size: 15px;
+  text-align: center;
+  background-color: red;
+  color: white;
+  border-radius: 4px;
+  bottom: 5px;
+  left: 5px; }
 
 @media screen and (max-width: 600px) {
   .topnav a {
@@ -22,8 +40,8 @@
 
   .topnav a.icon {
     float: right;
-    display: block; } }
-@media screen and (max-width: 600px) {
+    display: block; }
+
   .topnav.responsive {
     padding-top: 70px;
     transition: 500ms ease; }
@@ -36,7 +54,13 @@
   .topnav.responsive a {
     float: none;
     display: block;
-    text-align: left; } }
+    text-align: left; }
+
+  #pastille {
+    top: 27px;
+    right: 27px;
+    bottom: inherit;
+    left: inherit; } }
 body {
   margin: auto;
   padding: 0;
@@ -45,6 +69,9 @@ body {
   min-width: 280px;
   height: 100%; }
 
+html {
+  scroll-behavior: smooth; }
+
 /*#### HEADER ####*/
 .logonav {
   position: absolute;
@@ -52,23 +79,124 @@ body {
   margin-left: 10px; }
 
 /*#### CART ####*/
+.titleCart {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center; }
+  .titleCart h1 {
+    margin-top: 10px;
+    margin-bottom: 10px; }
+  .titleCart a {
+    position: relative;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #828282;
+    color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .titleCart a .fas {
+      font-size: 25px;
+      position: absolute;
+      top: 9px;
+      left: 10px; }
+
 .basket {
   background-color: #f0f0f0;
-  margin-top: 56px;
-  margin-bottom: 56px;
   min-height: 500px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   padding-top: 40px;
   padding-bottom: 20px; }
 
+#totalPrice {
+  display: flex;
+  border: white 5px solid;
+  flex-direction: column-reverse;
+  width: 90%;
+  margin: auto;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.75);
+  border-radius: 15px;
+  margin-bottom: 20px; }
+  #totalPrice form {
+    display: flex;
+    flex-direction: row; }
+    #totalPrice form h3 {
+      position: relative;
+      padding-bottom: 8px;
+      font-weight: bold; }
+      #totalPrice form h3::after {
+        content: "";
+        background-color: #828282;
+        width: 40px;
+        height: 3px;
+        position: absolute;
+        bottom: 0;
+        left: 0; }
+  #totalPrice input {
+    width: 95%;
+    margin-bottom: 10px;
+    height: 27px; }
+  #totalPrice .billing {
+    width: 50%;
+    padding: 15px; }
+  #totalPrice .shipping {
+    width: 50%;
+    padding: 15px; }
+  #totalPrice #totalCart {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    border: 5px solid #f0f0f0;
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.75); }
+    #totalPrice #totalCart span {
+      margin-right: 5px; }
+
+.submit-btn {
+  cursor: pointer;
+  margin: auto;
+  text-decoration: none;
+  height: 39px;
+  display: flex;
+  margin-top: 19px;
+  align-items: center;
+  color: white;
+  border-radius: 15px;
+  background: #e68500;
+  background: linear-gradient(132deg, #e68500 0%, #8952fe 98%);
+  box-shadow: 0px 0px 15px -5px black;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-weight: bold;
+  transition: 250ms; }
+  .submit-btn:hover {
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75); }
+
+#camerasCart {
+  width: 85%; }
+
 #basket-resume {
+  height: 550px;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%; }
   #basket-resume p {
     font-size: 30px; }
+
+span {
+  font-weight: bold; }
 
 .product_cart {
   height: 150px;
@@ -81,26 +209,96 @@ body {
   box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.75);
   border-radius: 15px;
   margin-bottom: 20px; }
-  .product_cart img {
+  .product_cart .camera_image {
     width: 20%;
     height: 100%;
     object-fit: cover;
     border-radius: 15px 0 0 15px; }
+  .product_cart span {
+    margin-right: 5px; }
 
 .product_desc {
   display: flex;
-  align-items: center;
-  width: 100%;
-  height: 100%; }
+  width: 80%; }
+  .product_desc .desc_left {
+    display: flex;
+    align-items: center;
+    width: 40%;
+    margin-left: 20px; }
+    .product_desc .desc_left .camera_name {
+      width: 50%;
+      margin-right: 5px; }
+    .product_desc .desc_left .camera_lense {
+      width: 50%; }
+  .product_desc .desc_right {
+    display: flex;
+    align-items: center;
+    width: 60%;
+    justify-content: space-evenly; }
+    .product_desc .desc_right .annulerProduit {
+      cursor: pointer;
+      text-decoration: none;
+      width: 82px;
+      height: 40px;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      border-radius: 15px;
+      background: #e68500;
+      background: linear-gradient(132deg, #e68500 0%, #8952fe 98%);
+      box-shadow: 0px 0px 15px -5px black;
+      border: none;
+      outline: none;
+      font-size: 14px;
+      font-weight: bold;
+      transition: 250ms; }
+      .product_desc .desc_right .annulerProduit span {
+        margin: 0; }
+      .product_desc .desc_right .annulerProduit .fas {
+        display: none; }
+      .product_desc .desc_right .annulerProduit:hover {
+        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75); }
+        .product_desc .desc_right .annulerProduit:hover .fas {
+          display: inherit; }
+        .product_desc .desc_right .annulerProduit:hover .delete-btn {
+          display: none; }
+
+.more, .less {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  border-radius: 5px;
+  width: 19px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  color: #828282;
+  border: 1px solid #828282;
+  font-weight: bold; }
+
+.less {
+  margin-top: 5px;
+  transition: 250ms; }
+  .less:hover {
+    background-color: red;
+    color: white; }
+
+.more {
+  margin-bottom: 5px;
+  transition: 250ms; }
+  .more:hover {
+    background-color: #4BB543;
+    color: white; }
 
 /*#### FOOTER ####*/
 footer {
-  width: 100%;
   background-color: #828282;
   color: #f0f0f0;
   display: flex;
   flex-wrap: wrap;
   padding-top: 30px;
+  padding-left: 50px;
   padding-bottom: 35px; }
   footer p {
     font-size: 20px;
@@ -118,16 +316,21 @@ footer {
     line-height: 30px; }
   footer ul {
     padding: 0;
-    margin: 0; }
+    margin: 0;
+    list-style: none; }
   footer a {
     text-decoration: none;
     color: #f0f0f0; }
   footer .about {
-    width: 50%;
-    margin-left: 50px; }
+    width: 50%; }
   footer .assistance {
-    width: 45%; }
+    width: 50%; }
 
+@media (max-width: 450px) {
+  footer .about {
+    width: 80%; }
+  footer .assistance {
+    width: 80%; } }
 /*#### POPUP ####*/
 .overlay {
   position: fixed;
@@ -240,12 +443,124 @@ textarea {
 ::placeholder {
   font-family: 'roboto'; }
 
-/*#### MEDIA ####*/
 @media (max-width: 1024px) {
   .popupcontent {
     width: 60%; } }
 @media (max-width: 550px) {
   .popupcontent {
     width: 85%; } }
+/*#### MEDIA ####*/
+@media (max-width: 1440px) {
+  #camerasCart {
+    width: 100%; } }
+@media (max-width: 950px) {
+  #camerasCart {
+    width: 100%; }
+
+  .product_cart .camera_image {
+    width: 40%; }
+
+  .quantityCheck {
+    display: flex;
+    flex-direction: row-reverse; }
+    .quantityCheck span {
+      display: none; }
+
+  .more, .less {
+    margin: 0; }
+
+  .more {
+    margin-left: 10px; }
+
+  .less {
+    margin-right: 10px; }
+
+  .product_desc {
+    width: 60%; }
+    .product_desc .desc_left {
+      flex-direction: column;
+      margin-left: 0px;
+      justify-content: center; }
+      .product_desc .desc_left .camera_name {
+        width: 95%;
+        margin-left: 5%;
+        margin-top: 0; }
+      .product_desc .desc_left .camera_lense {
+        width: 95%;
+        margin: 0;
+        margin-left: 5%;
+        height: 40px;
+        display: flex;
+        align-items: center; }
+    .product_desc .desc_right {
+      flex-direction: column; }
+      .product_desc .desc_right .camera_price {
+        margin: 0;
+        margin-bottom: 20px;
+        height: 29px;
+        display: flex;
+        align-items: center;
+        justify-content: center; } }
+@media (max-width: 650px) {
+  .product_cart {
+    width: 95%; }
+    .product_cart .camera_image {
+      width: 35%; }
+
+  .product_desc {
+    width: 65%; }
+    .product_desc .desc_left {
+      width: 65%; }
+    .product_desc .desc_right {
+      width: 35%; }
+
+  #totalPrice {
+    width: 95%; } }
+@media (max-width: 550px) {
+  #totalPrice form {
+    justify-content: center;
+    flex-direction: column; }
+    #totalPrice form .shipping {
+      width: 90%; }
+    #totalPrice form .billing {
+      width: 90%; } }
+@media (max-width: 450px) {
+  .product_desc {
+    flex-direction: column; }
+    .product_desc .desc_left {
+      width: 100%;
+      height: 70%;
+      justify-content: inherit;
+      align-items: inherit; }
+      .product_desc .desc_left .camera_name {
+        padding: 0; }
+      .product_desc .desc_left .camera_lense {
+        padding: 0; }
+    .product_desc .desc_right {
+      position: relative;
+      height: 30%;
+      justify-content: inherit;
+      align-items: inherit;
+      flex-direction: row;
+      width: 100%; }
+      .product_desc .desc_right .quantityCheck {
+        position: absolute;
+        top: -33px;
+        margin-left: 5%; }
+      .product_desc .desc_right .camera_price {
+        justify-content: inherit;
+        margin: 0;
+        margin-left: 5%;
+        height: 40px;
+        width: 100%; }
+      .product_desc .desc_right .annulerProduit {
+        width: 40px; }
+        .product_desc .desc_right .annulerProduit span {
+          display: none; }
+        .product_desc .desc_right .annulerProduit .fas {
+          display: initial; }
+
+  .product_cart {
+    align-items: inherit; } }
 
 /*# sourceMappingURL=cart.css.map */

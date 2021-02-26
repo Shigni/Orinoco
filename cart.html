@@ -1,50 +1,102 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 	<link rel="stylesheet" type="text/css" href="./CSS/cart.css">
-	<link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
-	<script
-      src="https://use.fontawesome.com/releases/v5.15.2/js/all.js"
-      data-auto-a11y="true" data-replacement-class="fas"
-    ></script>
+	<link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+	<script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-a11y="true"
+		data-replacement-class="fas"></script>
 	<script src="js/Navbar.js"></script>
-	<title>Votre panier ORINOCO</title>
-	<meta name="description" content="ORINOCO est un site de vente en ligne d'ours en peluche, de meubles en bois d'est de caméras anciennes">
+	<title>Orinoco | Votre panier</title>
+	<meta name="description" content="Orinoco est une boutique en ligne spécialisée dans la vente d'appareils photo vintage !">
 </head>
+
 <body class="container">
-	<header>
-		<a href="index.html"><img class="logonav" src="images/logo.png" alt="Logo orinoco"/></a>
-	
+	<!--  HEADER  -->
+	<header id="top">
+		<a href="index.html"><img class="logonav" src="images/logo.png" alt="Logo orinoco" /></a>
+
 		<div class="topnav" id="myTopnav">
-			<a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+			<a id="info-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
 			<a href="index.html">Home</a>
 			<a href="#popup">Contact</a>
-			
+
 			<a href="javascript:void(0);" class="icon" onclick="myFunction()">
 				<i class="fa fa-bars"></i>
 			</a>
 		</div>
-	
 	</header>
+
+	<!--  SECTION  -->
+	<section class="titleCart">
+		<h1>Récapitulatif de votre panier</h1>
+		<a href="#totalCart"><i class="fas fa-chevron-down"></i></a>
+	</section>
 
 	<section class="basket">
 
 		<div id="camerasCart">
-			
+
+		</div>
+
+		<div id="totalPrice">
+			<form>
+				<div class="shipping">
+					<h3>Informations de livraison</h3>
+					<label for="fname">Nom complet</label>
+					<input type="text" id="fname" name="nom" placeholder="Nom Prénom" required>
+
+					<label for="email">Email</label>
+					<input type="email" id="email" name="email" placeholder="Email@example.com" required>
+
+					<label for="address">Adresse</label>
+					<input type="text" id="address" name="adresse" placeholder="Adresse ligne 1" required>
+
+					<label for="city">Ville</label>
+					<input type="text" id="city" name="ville" placeholder="Paris" required>
+
+					<label for="zip">Code postal</label>
+					<input type="text" id="zip" name="zip" placeholder="10001" required>
+				</div>
+
+				<div class="billing">
+					<h3>Informations de paiement</h3>
+					<label for="cname">Propriétaire de la carte</label>
+					<input type="text" id="cname" name="cname" placeholder="Nom Prénom" required>
+
+					<label for="cnum">Numéro de carte</label>
+					<input type="text" id="cnum" name="cnum" placeholder="1111-2222-3333-4444" required>
+
+					<label for="expdate">Date d'expiration</label>
+					<input type="month" id="expdate" name="expdate" required>
+
+					<label for="cvv">CVV</label>
+					<input type="text" id="cvv" name="cvv" placeholder="123" required>
+
+					<button class="submit-btn" type="submit">Finaliser la commande</button>
+				</div>
+
+			</form>
 		</div>
 
 		<template id="cameras_template">
 			<div class="product_cart" id="product_cart">
-				<img class="camera_image"></img>
-				<div  class="product_desc">
-				<div class="camera_name"></div>
-				<div class="camera_lense"></div>
-				<div class="camera_price"></div>
-				<div id="remove_product"></div>
+				<img class="camera_image" src="#" alt="Appareil photo vintage">
+				<div class="product_desc">
+					<div class="desc_left">
+						<h2 class="camera_name">Camera name</h2>
+						<p class="camera_lense"></p>
+						
+					</div>
+					<div class="desc_right">
+						<p class="quantityCheck"></p>
+						<p class="camera_price"></p>
+						<div id="remove_product"></div>
+					</div>
 				</div>
 			</div>
 		</template>
@@ -54,6 +106,11 @@
 		</div>
 	</section>
 
+	<div class="titleCart">
+		<a href="#top"><i class="fas fa-chevron-up"></i></a>
+	</div>
+
+	<!--  FOOTER  -->
 	<footer>
 		<div class="about">
 			<p>À propos</p>
@@ -72,31 +129,36 @@
 		</div>
 	</footer>
 
-<div class="overlay" id="popup">
-    <div class="popupcontent">
-        <h2 class="title">Contact</h2>
-        <a class="close" href="#">&times;</a>
-        <div class="content">
-            <p>Vous avez des questions sur nos produits ? Ou sur la livraison ?
-                Alors envoyez nous un e-mail à l'adresse suivante: <span
-                    class="emailbold"><a href="mailto:">contact@orinoco.fr</a></span>.
-                <br />Ou utiliser simplement la messagerie intégrée !
-            </p>
-            <form>
-                <div class="type">
-                    <input type="email" id="email" name="email" placeholder="example@abc.fr">
-                </div>
-                <div class="type">
-                    <textarea id="myTextArea" rows="5" placeholder="Écrivez-nous !"></textarea>
-                </div>
-                <button class="submit"><i class="fas fa-paper-plane"></i></button>
-            </form>
-        </div>
-    </div>
-</div>
-	<script src="js/carttest.js"></script>
+	<!--  POPUP  -->
+	<div class="overlay" id="popup">
+		<div class="popupcontent">
+			<h2 class="title">Contact</h2>
+			<a class="close" href="#">&times;</a>
+			<div class="content">
+				<p>Vous avez des questions sur nos produits ? Ou sur la livraison ?
+					Alors envoyez nous un e-mail à l'adresse suivante: <span class="emailbold"><a
+							href="mailto:">contact@orinoco.fr</a></span>.
+					<br />Ou utiliser simplement la messagerie intégrée !
+				</p>
+				<form>
+					<div class="type">
+						<input type="email" id="emailPopup" name="email" placeholder="example@abc.fr">
+					</div>
+					<div class="type">
+						<textarea id="myTextArea" rows="5" placeholder="Écrivez-nous !"></textarea>
+					</div>
+					<button class="submit"><i class="fas fa-paper-plane"></i></button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="js/cart.js"></script>
+	<script src="js/formCheck.js"></script>
 	<script>
 		addition();
+		cartInfo();
+		checkInput();
 	</script>
 </body>
+
 </html>

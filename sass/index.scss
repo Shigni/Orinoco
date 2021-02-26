@@ -31,10 +31,7 @@ body {
     text-align: center;
     line-height: 25px;
     padding: 30px;
-
-    h1 {
-        font-size: 30px;
-    }
+    font-size: 30px;
 }
 
 /*#### PRODUCTS ####*/
@@ -47,6 +44,7 @@ body {
     flex-wrap: wrap;
     padding-top: 30px;
     padding-bottom: 30px;
+    margin-bottom: 55px;
 }
 
 #cameras {
@@ -61,6 +59,7 @@ body {
 
 .recap {
     display: flex;
+    
     width: 30%;
     height: 180px;
     border: 5px solid white;
@@ -137,20 +136,12 @@ body {
 }
 
 .shopping_cart {
-    display: flex;
-    width: 40%;
     flex-direction: column;
+    display: flex;
+    width: 100%;
     text-align: center;
-    .fas {
-        font-size: 90px;
-        text-align: center;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin-top: 10px;
-        margin-left: -10px;
-        color: $dark-grey;
-    }
+    justify-content: space-between;
+    align-items: center;
     a {
         margin-top: 10px;
         text-decoration: none;
@@ -165,6 +156,10 @@ body {
         background: rgb(230, 133, 0);
         background: linear-gradient(132deg, rgb(230, 133, 0) 0%, rgb(137, 82, 254) 98%);
         box-shadow: 0px 0px 15px -5px rgb(0, 0, 0);
+        transition: 250ms;
+        &:hover {
+            box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+        }
         .fas {
             display: none;
         }
@@ -199,180 +194,16 @@ body {
     transition: 250ms;
     border-radius: 15px;
     text-decoration: none;
+    transition: 250ms;
+        &:hover {
+            box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+        }
 }
 
 /*#### FOOTER ####*/
-
-footer{
-    background-color: $dark-grey;
-    color: $light-grey;
-    display: flex;
-    flex-wrap: wrap;
-    padding-top: 30px;
-    padding-left: 50px;
-    padding-bottom: 35px;
-    p {
-        font-size: 20px;
-        padding-bottom: 8px;
-        position: relative;
-        &::after{
-            content: "";
-            background-color: $light-grey;
-            width: 40px;
-            height: 3px;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-        }
-    }
-    li{
-        line-height: 30px;
-    }
-    ul{
-        padding: 0;
-        margin: 0;
-    }
-    a{
-        text-decoration: none;
-        color: $light-grey;
-    }
-    .about{
-        width: 50%;
-    }
-    .assistance{
-        width: 50%;
-    }
-}
-
+@import "./footer.scss";
 /*#### POPUP ####*/
-
-.overlay{
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.7);
-    transition: opacity 500ms;
-    visibility: hidden;
-    opacity: 0;
-    z-index: 999;
-}
-
-.emailbold {
-    font-weight: bold;
-    a {
-        color: $dark-grey;
-    }
-}
-
-.overlay:target {
-    visibility: visible;
-    opacity: 1;
-}
-
-.popupcontent {
-    margin: 200px auto;
-    padding: 20px;
-    background: $light-grey;
-    border-radius: 5px;
-    width: 35%;
-    position: relative;
-    transition: all 0.5s ease-in-out;
-    h2 {
-        margin-top: 0;
-        margin-left: 0;
-    }
-    .close {
-        position: absolute;
-        top: 20px;
-        right: 30px;
-        transition: all 200ms;
-        font-size: 30px;
-        font-weight: bold;
-        text-decoration: none;
-        color: #333;
-        &:hover{
-           color: $dark-grey; 
-           transform: rotate(90deg);
-        }
-    }
-    .content {
-        max-height: 30%;
-        overflow: auto;
-        p{
-            margin-bottom: 10px;
-        }
-    }
-  }
-
-  .title {
-    position: relative;
-    padding-bottom: 8px;
-    font-weight: lighter;
-    &::after{
-        content: "";
-        background-color: $dark-grey;
-        width: 40px;
-        height: 3px;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-    }
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-.type {
-    flex-direction: column;
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-input {
-    width: 95%;
-    border-style: none;
-    outline: none;
-    border: $dark-grey 1px solid;
-    border-radius: 5px;
-    padding: 5px;
-}
-textarea {
-    width: 95%;
-    resize: none;
-    border-style: none;
-    outline: none;
-    border:$dark-grey 1px solid;
-    border-radius: 5px;
-    padding: 5px;
-}
-.submit {
-    margin: auto;
-    outline: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    border-style: none;
-    background: linear-gradient(132deg, rgba(230,133,0,0.8743872549019608) 0%, rgba(137,82,254,1) 98%);
-    height: 25px;
-    width: 20%;
-    border-radius: 12px;
-    color: white;
-    box-shadow: 10px 7px 26px -16px rgba(0,0,0,1);
-    transition-duration: 150ms;
-    &:hover{
-        box-shadow: 10px 7px 26px -10px rgba(0,0,0,1);
-    }
-}
-
-::placeholder {
-    font-family: 'roboto';
-}
+@import "./popup.scss";
 
 /*#### MEDIA ####*/
 
@@ -400,9 +231,6 @@ textarea {
     .recap {
         width: 80%;
     }
-    .popupcontent {
-        width: 60%;
-    }
 }
 
 @media (max-width: 550px) {
@@ -412,9 +240,6 @@ textarea {
 
     .recap {
         width: 95%;
-    }
-    .popupcontent {
-        width: 85%;
     }
 }
 
@@ -453,43 +278,13 @@ textarea {
         margin-bottom: 0;
         height: 25%;
     }
-    footer {
-
-        .about {
-            width: 80%;
-        }
-        .assistance {
-            width: 80%;
-        }
-    }
 
     .shopping_cart {
-        width: 50px;
-        position: relative;
-        .fas {
-            display: none;
-        }
         a {
-            width: 45px;
-            height: 45px;
-            position: absolute;
-            top: 0;
-            right: 0;
-            margin: 0;
-            
-            .fas {
-                display: inline;
-                font-size: 20px;
-                margin-top: 0;
-                margin-left: 0;
-                color: white;
-            }
-            p {
-                display: none;
-            }
+            margin-top: 0;
         }
     }
-    
+
     .recap_cart {
         width: 100%;
         margin: 0;

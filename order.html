@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="./CSS/cart.css">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-a11y="true"
+        data-replacement-class="fas"></script>
+    <script src="js/Navbar.js"></script>
+    <title>Orinoco | Votre panier</title>
+    <meta name="description"
+        content="Orinoco est une boutique en ligne spécialisée dans la vente d'appareils photo vintage !">
+</head>
+
+<body class="container">
+    <!--  HEADER  -->
+    <header id="top">
+        <a href="index.html"><img class="logonav" src="images/logo.png" alt="Logo orinoco" /></a>
+
+        <div class="topnav" id="myTopnav">
+            <a id="info-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+            <a href="index.html">Home</a>
+            <a href="#popup">Contact</a>
+
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </header>
+
+    <!--  SECTION  -->
+
+    <!--  FOOTER  -->
+    <footer>
+		<div class="about">
+			<p>À propos</p>
+			<ul>
+				<li><a href="#">Qui sommes-nous ?</a></li>
+				<li><a href="#">Conditions générales de vente</a></li>
+				<li><a href="#">Données et confidentialité</a></li>
+			</ul>
+		</div>
+		<div class="assistance">
+			<p>Assistance</p>
+			<ul>
+				<li><a href="#">Centre d'aide</a></li>
+				<li><a href="#popup">Nous contacter</a></li>
+			</ul>
+		</div>
+	</footer>
+    <!--  POPUP  -->
+	<div class="overlay" id="popup">
+		<div class="popupcontent">
+			<h2 class="title">Contact</h2>
+			<a class="close" href="#">&times;</a>
+			<div class="content">
+				<p>Vous avez des questions sur nos produits ? Ou sur la livraison ?
+					Alors envoyez nous un e-mail à l'adresse suivante: <span class="emailbold"><a
+							href="mailto:">contact@orinoco.fr</a></span>.
+					<br />Ou utiliser simplement la messagerie intégrée !
+				</p>
+				<form>
+					<div class="type">
+						<input type="email" id="emailPopup" name="email" placeholder="example@abc.fr">
+					</div>
+					<div class="type">
+						<textarea id="myTextArea" rows="5" placeholder="Écrivez-nous !"></textarea>
+					</div>
+					<button class="submit"><i class="fas fa-paper-plane"></i></button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 999; }
+
+.emailbold {
+  font-weight: bold; }
+  .emailbold a {
+    color: #828282; }
+
+.overlay:target {
+  visibility: visible;
+  opacity: 1; }
+
+.popupcontent {
+  margin: 200px auto;
+  padding: 20px;
+  background: #f0f0f0;
+  border-radius: 5px;
+  width: 35%;
+  position: relative;
+  transition: all 0.5s ease-in-out; }
+  .popupcontent h2 {
+    margin-top: 0;
+    margin-left: 0; }
+  .popupcontent .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333; }
+    .popupcontent .close:hover {
+      color: #828282;
+      transform: rotate(90deg); }
+  .popupcontent .content {
+    max-height: 30%;
+    overflow: auto; }
+    .popupcontent .content p {
+      margin-bottom: 10px; }
+
+.title {
+  position: relative;
+  padding-bottom: 8px;
+  font-weight: lighter; }
+  .title::after {
+    content: "";
+    background-color: #828282;
+    width: 40px;
+    height: 3px;
+    position: absolute;
+    bottom: 0;
+    left: 0; }
+
+form {
+  display: flex;
+  flex-direction: column; }
+
+.type {
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 10px; }
+
+input {
+  width: 95%;
+  border-style: none;
+  outline: none;
+  border: #828282 1px solid;
+  border-radius: 5px;
+  padding: 5px; }
+
+textarea {
+  width: 95%;
+  resize: none;
+  border-style: none;
+  outline: none;
+  border: #828282 1px solid;
+  border-radius: 5px;
+  padding: 5px; }
+
+.submit {
+  margin: auto;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  border-style: none;
+  background: linear-gradient(132deg, rgba(230, 133, 0, 0.8743872549) 0%, #8952fe 98%);
+  height: 25px;
+  width: 20%;
+  border-radius: 12px;
+  color: white;
+  box-shadow: 10px 7px 26px -16px black;
+  transition-duration: 150ms; }
+  .submit:hover {
+    box-shadow: 10px 7px 26px -10px black; }
+
+::placeholder {
+  font-family: 'roboto'; }
+
+@media (max-width: 1024px) {
+  .popupcontent {
+    width: 60%; } }
+@media (max-width: 550px) {
+  .popupcontent {
+    width: 85%; } }
+
+/*# sourceMappingURL=popup.css.map */

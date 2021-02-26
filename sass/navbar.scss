@@ -12,7 +12,8 @@ $dark-grey: #828282;
         text-align: center;
         padding: 25px 25px;
         text-decoration: none;
-        font-size: 17px;
+        //font-size: 17px;
+        font-size: 18px;
         &:hover {
             background-color: $dark-grey;
             color: $light-grey;
@@ -22,6 +23,25 @@ $dark-grey: #828282;
         display: none;
       }
   }
+#info-cart {
+  position: relative;
+}
+
+#pastille {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  font-size: 15px;
+  text-align: center;
+  background-color: red;
+  color: white;
+  border-radius: 4px;
+  bottom: 5px;
+  left: 5px;
+}
   
 @media screen and (max-width: 600px) {
     .topnav a {
@@ -32,10 +52,7 @@ $dark-grey: #828282;
       float: right;
       display: block;
     }
-  }
-  
-  
-  @media screen and (max-width: 600px) {
+
     .topnav.responsive {
         padding-top: 70px;
         transition: 500ms ease;
@@ -50,5 +67,12 @@ $dark-grey: #828282;
         float: none;
         display: block;
         text-align: left;
+    }
+
+    #pastille {
+      top: 27px;
+      right: 27px;
+      bottom: inherit;
+      left: inherit;
     }
   }
