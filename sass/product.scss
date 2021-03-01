@@ -154,7 +154,11 @@ span {
     }
 }
 
-
+@media (max-width: 600px) {
+    .bg_product {
+        margin-bottom: 0;
+    }
+}
 
 @media (max-width: 450px) {
 
@@ -170,7 +174,7 @@ span {
         padding: 0;
         padding-top: 20px;
         padding-bottom: 20px;
-        margin-bottom: 0;
+        
     }
 
     footer {

@@ -2,40 +2,64 @@
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="./CSS/cart.css">
-    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
-    <script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-a11y="true"
-        data-replacement-class="fas"></script>
-    <script src="js/Navbar.js"></script>
-    <title>Orinoco | Votre panier</title>
-    <meta name="description"
-        content="Orinoco est une boutique en ligne spécialisée dans la vente d'appareils photo vintage !">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<link rel="stylesheet" type="text/css" href="./CSS/order.css">
+	<link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+	<script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-a11y="true"
+		data-replacement-class="fas"></script>
+	<script src="js/Navbar.js"></script>
+	<title>Orinoco | Confirmation de votre commande</title>
+	<meta name="description"
+		content="Orinoco est une boutique en ligne spécialisée dans la vente d'appareils photo vintage !">
 </head>
 
 <body class="container">
-    <!--  HEADER  -->
-    <header id="top">
-        <a href="index.html"><img class="logonav" src="images/logo.png" alt="Logo orinoco" /></a>
+	<!--  HEADER  -->
+	<header id="top">
+		<a href="index.html"><img class="logonav" src="images/logo.png" alt="Logo orinoco" /></a>
 
-        <div class="topnav" id="myTopnav">
-            <a id="info-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
-            <a href="index.html">Home</a>
-            <a href="#popup">Contact</a>
+		<div class="topnav" id="myTopnav">
+			<a id="info-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+			<a href="index.html">Home</a>
+			<a href="#popup">Contact</a>
 
-            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                <i class="fa fa-bars"></i>
-            </a>
-        </div>
-    </header>
+			<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+				<i class="fa fa-bars"></i>
+			</a>
+		</div>
+	</header>
 
-    <!--  SECTION  -->
+	<!--  SECTION  -->
+	<section class="order">
+		<h1 class="orderTitle">Confirmation de votre commande</h1>
+		<div class="bg_order">
+			<div class="orderSum">
+				<div class="informations">
+					<img src="./images/logoorder.png" alt="Logo orinoco">
+					<p id="confirmOrder"></p>
+					<h3>Numéro de commande: </h3>
+					<p id="orderId"></p>
+					<a href="./index.html">Retour à la page d'accueil</a>
+				</div>
+				<div class="shipping">
+					<h3>Date de livraison estimée: </h3>
+					<p id="deliveryDate"></p>
+					<h3>Informations de livraison: </h3>
+					<p id="orderFName"></p>
+					<p id="orderLName"></p>
+					<p id="orderEmail"></p>
+					<p id="orderAddress"></p>
+					<p id="orderCity"></p>
+				</div>
+			</div>
+		</div>
+	</section>
 
-    <!--  FOOTER  -->
-    <footer>
+	<!--  FOOTER  -->
+	<footer>
 		<div class="about">
 			<p>À propos</p>
 			<ul>
@@ -52,7 +76,7 @@
 			</ul>
 		</div>
 	</footer>
-    <!--  POPUP  -->
+	<!--  POPUP  -->
 	<div class="overlay" id="popup">
 		<div class="popupcontent">
 			<h2 class="title">Contact</h2>
@@ -75,6 +99,7 @@
 			</div>
 		</div>
 	</div>
-
+	<script src="js/order.js"></script>
 </body>
+
 </html>

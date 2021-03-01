@@ -1,3 +1,8 @@
+.logonav {
+  position: absolute;
+  top: 8px;
+  margin-left: 10px; }
+
 .topnav {
   background-color: #f0f0f0;
   overflow: hidden; }

@@ -12,7 +12,8 @@
 		data-replacement-class="fas"></script>
 	<script src="js/Navbar.js"></script>
 	<title>Orinoco | Votre panier</title>
-	<meta name="description" content="Orinoco est une boutique en ligne spécialisée dans la vente d'appareils photo vintage !">
+	<meta name="description"
+		content="Orinoco est une boutique en ligne spécialisée dans la vente d'appareils photo vintage !">
 </head>
 
 <body class="container">
@@ -47,11 +48,19 @@
 			<form>
 				<div class="shipping">
 					<h3>Informations de livraison</h3>
-					<label for="fname">Nom complet</label>
-					<input type="text" id="fname" name="nom" placeholder="Nom Prénom" required>
+					<div class="fullName">
+						<div>
+							<label for="fname">Prénom</label>
+							<input type="text" id="fname" name="Prénom" placeholder="Prénom" required>
+						</div>
+						<div>
+							<label for="lname">Nom</label>
+							<input type="text" id="lname" name="Nom" placeholder="Nom" required>
+						</div>
+					</div>
 
-					<label for="email">Email</label>
-					<input type="email" id="email" name="email" placeholder="Email@example.com" required>
+					<label for="mail">Email</label>
+					<input type="email" id="mail" name="mail" placeholder="Email@example.com" required>
 
 					<label for="address">Adresse</label>
 					<input type="text" id="address" name="adresse" placeholder="Adresse ligne 1" required>
@@ -66,18 +75,18 @@
 				<div class="billing">
 					<h3>Informations de paiement</h3>
 					<label for="cname">Propriétaire de la carte</label>
-					<input type="text" id="cname" name="cname" placeholder="Nom Prénom" required>
+					<input type="text" id="cname" name="cname" placeholder="Nom Prénom" >
 
 					<label for="cnum">Numéro de carte</label>
-					<input type="text" id="cnum" name="cnum" placeholder="1111-2222-3333-4444" required>
+					<input type="text" id="cnum" name="cnum" placeholder="1111-2222-3333-4444" >
 
 					<label for="expdate">Date d'expiration</label>
-					<input type="month" id="expdate" name="expdate" required>
+					<input type="month" id="expdate" name="expdate" >
 
 					<label for="cvv">CVV</label>
-					<input type="text" id="cvv" name="cvv" placeholder="123" required>
+					<input type="text" id="cvv" name="cvv" placeholder="123" >
 
-					<button class="submit-btn" type="submit">Finaliser la commande</button>
+					<div class="submit-btn" onclick="confirmOrder()">Finaliser la commande</div>
 				</div>
 
 			</form>
@@ -90,7 +99,7 @@
 					<div class="desc_left">
 						<h2 class="camera_name">Camera name</h2>
 						<p class="camera_lense"></p>
-						
+
 					</div>
 					<div class="desc_right">
 						<p class="quantityCheck"></p>
@@ -155,9 +164,9 @@
 	<script src="js/cart.js"></script>
 	<script src="js/formCheck.js"></script>
 	<script>
+		displayForm();
 		addition();
 		cartInfo();
-		checkInput();
 	</script>
 </body>
 

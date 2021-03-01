@@ -102,9 +102,10 @@ html{
     }
     
     input {
-        width: 95%;
+        width: 100%;
         margin-bottom: 10px;
         height: 27px;
+        max-width: 805px;
     }
 
     .billing {
@@ -131,8 +132,21 @@ html{
     }
 }
 
+.fullName {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 805px;
+    div {
+        width: 47%;
+    }
+}
+
 .submit-btn {
+    width: 30%;
     cursor: pointer;
+    text-align: center;
+    justify-content: center;
     margin: auto;
     text-decoration: none;
     height: 39px;
@@ -365,6 +379,12 @@ span {
             }
         }
         
+    }
+}
+
+@media (max-width: 768px) {
+    .submit-btn {
+        width: 50%;
     }
 }
 

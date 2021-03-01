@@ -1,4 +1,9 @@
 /*#### GENERAL ####*/
+.logonav {
+  position: absolute;
+  top: 8px;
+  margin-left: 10px; }
+
 .topnav {
   background-color: #f0f0f0;
   overflow: hidden; }
@@ -141,9 +146,10 @@ html {
         bottom: 0;
         left: 0; }
   #totalPrice input {
-    width: 95%;
+    width: 100%;
     margin-bottom: 10px;
-    height: 27px; }
+    height: 27px;
+    max-width: 805px; }
   #totalPrice .billing {
     width: 50%;
     padding: 15px; }
@@ -162,8 +168,19 @@ html {
     #totalPrice #totalCart span {
       margin-right: 5px; }
 
+.fullName {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 805px; }
+  .fullName div {
+    width: 47%; }
+
 .submit-btn {
+  width: 30%;
   cursor: pointer;
+  text-align: center;
+  justify-content: center;
   margin: auto;
   text-decoration: none;
   height: 39px;
@@ -501,6 +518,9 @@ textarea {
         display: flex;
         align-items: center;
         justify-content: center; } }
+@media (max-width: 768px) {
+  .submit-btn {
+    width: 50%; } }
 @media (max-width: 650px) {
   .product_cart {
     width: 95%; }

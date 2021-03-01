@@ -2,6 +2,12 @@
 $light-grey: #f0f0f0;
 $dark-grey: #828282;
 
+.logonav {
+  position: absolute;
+  top: 8px;
+  margin-left: 10px;
+}
+
 .topnav {
     background-color: $light-grey;
     overflow: hidden;
