@@ -18,7 +18,6 @@ async function main() {
             $newTemplateCamera.querySelector('.camera_price').innerText = camera.price / 100 + '€'
             $newTemplateCamera.querySelector('.more_info').href = 'product.html?id=' + camera.id;
             
-
             $cameras.append($newTemplateCamera);
         });
 
