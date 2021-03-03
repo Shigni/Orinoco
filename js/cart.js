@@ -53,7 +53,6 @@ addPanier = () => {
         userPanier.forEach(element => {
             if ((selectedLense == element.lense) && (productId == element.id)) {
                 isInUserCart = true;
-
             }
         });
 
@@ -140,9 +139,9 @@ addition = () => {
                 $newTemplateCamera.querySelector('.camera_image').src = data[element].imageUrl
                 $newTemplateCamera.querySelector('.camera_name').innerHTML = data[element].name
                 $newTemplateCamera.querySelector('.camera_lense').innerHTML = '<span>Objectif: </span>' + listOfProducts[element].lense
-                $newTemplateCamera.querySelector('.camera_price').innerHTML = '<span>Prix: </span>' + data[element].price / 100 + '€'
+                $newTemplateCamera.querySelector('.camera_price').innerHTML = '<span>Prix: </span>' + data[element].price * listOfProducts[element].quantity / 100 + '€'
                 $newTemplateCamera.getElementById('remove_product').innerHTML = '<button class="annulerProduit"><i class="fas fa-trash-alt"></i> <span class="delete-btn"> Supprimer </span></button>'
-                $newTemplateCamera.querySelector('.quantityCheck').innerHTML = '<div data-id="' + data[element]._id + '" class="more">+</div><span>Quantité: </span>' + listOfProducts[element].quantity + '<div data-id="' + data[element]._id + '" class="less">-</div>';
+                $newTemplateCamera.querySelector('.quantityCheck').innerHTML = '<div data-id="' + data[element]._id + '" data-lense="' + listOfProducts[element].lense + '" class="more">+</div><span>Quantité: </span>' + listOfProducts[element].quantity + '<div data-id="' + data[element]._id + '" data-lense="' + listOfProducts[element].lense + '" class="less">-</div>';
 
                 $cameras.append($newTemplateCamera);
 
@@ -172,7 +171,7 @@ addition = () => {
                     return;
                 }
                 for (element in listOfProducts) {
-                    if (listOfProducts[element].id == e.target.dataset.id & listOfProducts[element].quantity > 1) {
+                    if (listOfProducts[element].lense == e.target.dataset.lense && listOfProducts[element].id == e.target.dataset.id && listOfProducts[element].quantity > 1) {
                         listOfProducts[element].quantity--;
                         window.location.reload();
                     }
@@ -187,7 +186,7 @@ addition = () => {
                 }
 
                 for (element in listOfProducts) {
-                    if (listOfProducts[element].id == e.target.dataset.id & listOfProducts[element].quantity < 5) {
+                    if (listOfProducts[element].lense == e.target.dataset.lense && listOfProducts[element].id == e.target.dataset.id && listOfProducts[element].quantity < 5) {
                         listOfProducts[element].quantity++;
                         window.location.reload();
                     }
