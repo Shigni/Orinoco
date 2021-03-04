@@ -2,6 +2,7 @@ $light-grey: #f0f0f0;
 $dark-grey: #828282;
 
 footer{
+    position: relative;
     background-color: $dark-grey;
     color: $light-grey;
     display: flex;
@@ -40,6 +41,17 @@ footer{
     }
     .assistance{
         width: 50%;
+    }
+}
+
+.copyright {
+    position: absolute;
+    bottom: 0;
+    right: 18px;
+    font-size: 10px;
+    &::after {
+        position: inherit;
+        content: inherit;
     }
 }
 

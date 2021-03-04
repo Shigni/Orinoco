@@ -160,6 +160,7 @@ span {
 
 /*#### FOOTER ####*/
 footer {
+  position: relative;
   background-color: #828282;
   color: #f0f0f0;
   display: flex;
@@ -192,6 +193,15 @@ footer {
     width: 50%; }
   footer .assistance {
     width: 50%; }
+
+.copyright {
+  position: absolute;
+  bottom: 0;
+  right: 18px;
+  font-size: 10px; }
+  .copyright::after {
+    position: inherit;
+    content: inherit; }
 
 @media (max-width: 450px) {
   footer .about {
