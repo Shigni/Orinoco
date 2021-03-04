@@ -30,10 +30,13 @@ addPanier = () => {
         //Création de l'objet dans le localStorage
         const urlParams = new URLSearchParams(window.location.search)
         const productId = urlParams.get('id')
+
         let selectQuantity = document.getElementById("productQuantity");
         let selectedQuantity = selectQuantity.options[selectQuantity.selectedIndex].value;
+
         let selectLense = document.getElementById("optionSelect");
         let selectedLense = selectLense.options[selectLense.selectedIndex].value
+        
         const item = {
             "id": productId,
             "quantity": selectedQuantity,
