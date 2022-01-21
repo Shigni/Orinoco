@@ -7,11 +7,6 @@ Html/css/js - pas de maquettes - Front-end
 - Gérer des événements JavaScript.
 
 
-## Demo
-
- https://shigni.github.io/LouisServant_4_21012022/
-
-
 ## Authors
 
 - [@Shigni](https://www.github.com/shigni)
